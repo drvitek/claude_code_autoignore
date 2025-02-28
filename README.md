@@ -11,7 +11,7 @@ claude config set ignorePatterns '["node_modules/", "node_modules/**"]'
 ```
 
 This tool automates this conversion.  More specifically, it can:
-1. Find all `.gitignore` files in a target directory, including handling nested .gitignore files.
+1. Find all `.gitignore` files in a target directory (including handling nested `.gitignore` files).
 2. Convert `.gitignore` patterns to Claude Code's `ignorePatterns` format
 3. Automatically run the appropriate `claude config set ignorePatterns` commands
 4. Track `.gitignore` changes to efficiently update only when needed
@@ -22,10 +22,11 @@ This tool automates this conversion.  More specifically, it can:
 - Negation patterns (lines starting with `!`) are currently **COMPLETELY SKIPPED.**
 - I'm not necessarily a careful programmer, I built this with Claude Code, and Claude Code is rapidly changing.  **USE AT YOUR OWN RISK.**
 
-In particular, this code will probably do the following things to your system:
+In particular, this code will probably do only the following things to your system:
 - read files
-- call lots of "claude config set" commands
-- write some JSON data to `~/cc_autoignore_config` (change this location via `CONFIG_FILEPATH` in `cc_autoignore.py`)
+- call lots of `claude config set` commands
+- write some JSON data to `~/.cc_autoignore_config`
+    - change this location via `CONFIG_FILEPATH` in `cc_autoignore.py`)
 
 ## features
 
@@ -36,9 +37,13 @@ In particular, this code will probably do the following things to your system:
 - **Dry Run**: Preview changes without applying them
 - **Default Config**: Set global defaults for the tool
 
+## setup
+
+1. Put `cc_autoignore` in `/usr/local/bin/` or wherever.
+2. Modify `cc_autoignore` to point to wherever you've put `cc_autoignore.py` (default `/usr/local/bin/py_src/`).
+
 ## usage
 
-**Setup**: put `cc_autoignore` in `/usr/local/bin/` and modify it to point to wherever you've put `cc_autoignore.py`.
 
 ```bash
 # Scan a directory for .gitignore files
@@ -57,7 +62,7 @@ cc_autoignore update
 cc_autoignore reset
 ```
 
-## the future
+## the future??
 
 - Support for negation patterns would be nice.
 - Better pattern conversion; I'm sure there are weird edge cases this code messes up.
