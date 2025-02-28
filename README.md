@@ -26,7 +26,7 @@ In particular, this code will probably do only the following things to your syst
 - read files
 - call lots of `claude config set` commands
 - write some JSON data to `~/.cc_autoignore_config`
-    - change this location via `CONFIG_FILEPATH` in `cc_autoignore.py`)
+    - change this location via `CONFIG_FILEPATH` in `cc_autoignore.py`
 
 ## features
 
@@ -40,7 +40,8 @@ In particular, this code will probably do only the following things to your syst
 ## setup
 
 1. Put `cc_autoignore` in `/usr/local/bin/` or wherever.
-2. Modify `cc_autoignore` to point to wherever you've put `cc_autoignore.py` (default `/usr/local/bin/py_src/`).
+2. Modify `cc_autoignore` to point to wherever you've put `cc_autoignore.py`
+   - (default `/usr/local/bin/py_src/`).
 
 ## usage
 
