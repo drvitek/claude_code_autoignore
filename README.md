@@ -32,12 +32,13 @@ If you have really complicated `.gitignore` files, it's conceivable that this to
 
 ## features
 
-- **Scan**: Recursively find all `.gitignore` files in your directory
-- **Update**: Sync changed `.gitignore` files with Claude Code's config. Avoids unnecessary updates with file hash tracking.
-- **Status**: View which `.gitignore` files are tracked and their status
-- **Reset**: Clear all Claude Code ignore patterns set by the tool
-- **Dry Run**: Preview changes without applying them
-- **Default Config**: Set global defaults for the tool
+- `scan`: find all `.gitignore` files in the target directory.
+- `update`: sync Claude Code's `ignorePatterns` config with changed tracked `.gitignore` files.
+    - Stores `.gitignore` hashes to prevent unnecessary updates.
+    - Dry run functionality.
+- `status`: view whether the tracked Claude Code `ignorePatterns` configurations match the underlying `.gitignore` files. 
+- `reset`: clear all Claude Code ignore patterns ever set by the tool.
+- `config`: set global defaults for the tool (see **config** section below)
 
 ## setup
 
@@ -49,7 +50,7 @@ If you have really complicated `.gitignore` files, it's conceivable that this to
 
 ## config
 
-There are currently four global config settings:
+There are currently three global config settings:
 - `verbosity`: how verbose to be by default, integer 0-4 (inclusive).
 - `always_add`: lines to always add to `ignorePatterns` configuration.
 - `always_remove`: lines in `.gitignore` files to always remove when building `ignorePatterns` configuration.
@@ -82,7 +83,7 @@ cc_autoignore reset
 - I have no idea how Macs (or Claude Code on WSL) work and if anything here will break.
 - Git hooks for automatic updates on `.gitignore` changes.
 
-PRs welcome!  Email me (code @ domain on my profile) if you're interested in becoming a maintainer.
+PRs welcome!  Email me (code @ [domain on my profile]) if you're interested in becoming a maintainer.
 
 ## License
 
