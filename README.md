@@ -24,9 +24,11 @@ This tool automates this conversion.  More specifically, it can:
 
 In particular, this code will probably do only the following things to your system:
 - read files
-- call lots of `claude config set` commands
+- call lots of `claude config get`/`set` commands
 - write some JSON data to `~/.cc_autoignore_config`
     - change this location via `CONFIG_FILEPATH` in `cc_autoignore.py`
+
+If you have really complicated `.gitignore` files, it's conceivable that this tool could break your Claude Code setup and require a reinstall.  Sorry!
 
 ## features
 
@@ -41,7 +43,16 @@ In particular, this code will probably do only the following things to your syst
 
 1. Put `cc_autoignore` in `/usr/local/bin/` or wherever.
 2. Modify `cc_autoignore` to point to wherever you've put `cc_autoignore.py`
-   - (default `/usr/local/bin/py_src/`).
+   - default `/usr/local/bin/py_src/`.
+
+(this is stupid and will probably change in the future!)
+
+## config
+
+There are currently four global config settings:
+- `verbosity`: how verbose to be by default, integer 0-4 (inclusive).
+- `always_add`: lines to always add to `ignorePatterns` configuration.
+- `always_remove`: lines in `.gitignore` files to always remove when building `ignorePatterns` configuration.
 
 ## usage
 
@@ -66,11 +77,12 @@ cc_autoignore reset
 ## the future??
 
 - Support for negation patterns would be nice.
-- Better pattern conversion; I'm sure there are weird edge cases this code messes up.
+- Better pattern conversion; I'm sure there are weird edge cases this tool currently messes up.
 - Global `.gitignore` handling.
-- Git hooks for automatic updates on `.gitignore` changes?
+- I have no idea how Macs (or Claude Code on WSL) work and if anything here will break.
+- Git hooks for automatic updates on `.gitignore` changes.
 
-PRs welcome!
+PRs welcome!  Email me (code @ domain on my profile) if you're interested in becoming a maintainer.
 
 ## License
 

@@ -23,6 +23,13 @@ var/
 # Virtual Environment
 venv/
 ENV/
+.venv/
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
 
 # IDE
 .idea/
@@ -32,3 +39,5 @@ ENV/
 
 # Misc
 .DS_Store
+*.log
+.cache/
